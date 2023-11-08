@@ -3,7 +3,6 @@ This project is an example of a very basic backend implementation for the Catapp
 ### How to Run
 **Prerequisites**
 
-- Python 3.6+
 - Docker
 
 **Steps**

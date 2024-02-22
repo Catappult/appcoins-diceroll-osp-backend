@@ -20,6 +20,7 @@ Run the Docker container with the following command:
 ```
 docker run --rm -p 8000:8000 -e SECRET_KEY='YOUR_SECRET_KEY' -e BASE_URL='YOUR_BACKEND_BASE_URL' osp-backend
 ```
+You can also optionally pass the PACKAGE_NAME variable with your package name.
 
 For local testing we recommeding using tools like [ngrok](https://ngrok.com) which once installed and with a free account can be ran simple with 
 ```

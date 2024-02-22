@@ -11,6 +11,7 @@ import string
 
 SECRET_KEY = bytes(os.getenv('SECRET_KEY'), 'utf-8')
 BASE_URL = os.getenv('BASE_URL')
+PACKAGE_NAME = os.getenv('PACKAGE_NAME', 'com.appcoins.diceroll')
 if not SECRET_KEY and not BASE_URL:
     raise SystemExit('SECRET_KEY and CALLBACK_URL must be set')
 
@@ -51,7 +52,7 @@ def get_url(product: str):
     order_reference = generate_order_reference()
     callback_url = BASE_URL + "/callback_handler"
     encoded_callback_url = urllib.parse.quote(callback_url, safe="")
-    url = f"https://apichain.catappult.io/transaction/inapp?product={product}&domain=com.appcoins.diceroll&callback_url={encoded_callback_url}&order_reference={order_reference}"
+    url = f"https://apichain.catappult.io/transaction/inapp?product={product}&domain={PACKAGE_NAME}&callback_url={encoded_callback_url}&order_reference={order_reference}"
     signature = hmac.new(SECRET_KEY, url.encode("utf-8"), hashlib.sha256).hexdigest()
     orders[order_reference] = "PENDING"
     return {"url": url + "&signature=" + signature, "order_reference": order_reference}

@@ -11,7 +11,7 @@ import string
 
 SECRET_KEY = bytes(os.getenv('SECRET_KEY'), 'utf-8')
 BASE_URL = os.getenv('BASE_URL')
-PACKAGE_NAME = os.getenv('PACKAGE_NAME', 'com.appcoins.diceroll')
+PACKAGE_NAME = os.getenv('PACKAGE_NAME', 'com.appcoins.diceroll.osp')
 if not SECRET_KEY and not BASE_URL:
     raise SystemExit('SECRET_KEY and CALLBACK_URL must be set')
 

@@ -1,6 +1,12 @@
 # Use the official Python 3.11 image from the DockerHub
 FROM python:3.11
 
+# Refresh the OS CA bundle so the image gets the patched Debian ca-certificates
+# (eMudhra CA distrust, SYS-3193).
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends --only-upgrade ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
 # Set the working directory to /app
 WORKDIR /app
 

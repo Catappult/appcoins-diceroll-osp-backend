@@ -2,3 +2,5 @@ fastapi==0.104.0
 expiringdict==1.2.1
 httpx==0.18.2
 uvicorn==0.23.2
+# Floor for the eMudhra CA distrust (SYS-3193).
+certifi>=2026.10.19
